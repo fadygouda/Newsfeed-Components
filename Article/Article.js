@@ -112,3 +112,82 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+const createArticle = (title, date, firstParagraph, secondParagraph, thirdParagraph) => {
+  const article = document.createElement('div')
+  const titles = document.createElement('h2')
+  const dates = document.createElement('p')
+  const paragraphOne = document.createElement('p')
+  const paragraphTwo = document.createElement('p')
+  const paragraphThree = document.createElement('p')
+  const expandButton = document.createElement('span')
+
+  article.classList.add('article')
+  dates.classList.add('date')
+  
+  expandButton.classList.add('expandButton')
+
+  article.appendChild(titles)
+  article.appendChild(dates)
+  article.appendChild(paragraphOne)
+  article.appendChild(paragraphTwo)
+  article.appendChild(paragraphThree)
+  article.appendChild(expandButton);
+
+
+  titles.textContent = title
+  dates.textContent = date
+  paragraphOne.textContent = firstParagraph
+  paragraphTwo.textContent = secondParagraph
+  paragraphThree.textContent = thirdParagraph
+  expandButton.textContent = '\u25bc'
+
+  expandButton.addEventListener('click', (event) => {
+    article.classList.toggle('article-open')
+  })
+  
+  return article
+
+}
+const container = document.querySelector('.articles')
+data.forEach(element => {
+  container.appendChild(createArticle(element.title, element.date, element.firstParagraph, element.secondParagraph, element.thirdParagraph))
+
+})
+
+//    const expandButton = document.createElement('span');
+
+
+//    article.appendChild(articleTitle);
+//    article.appendChild(articleDate);
+//    article.appendChild(para1);
+//    article.appendChild(para2);
+//    article.appendChild(para3);
+//    article.appendChild(expandButton);
+
+
+//    articleTitle.textContent = articleData.title;
+//    articleDate.textContent = articleData.date;
+//    para1.textContent = articleData.firstParagraph;
+//    para2.textContent = articleData.secondParagraph;
+//    para3.textContent = articleData.thirdParagraph;
+//    expandButton.textContent = '	\u25C9	';
+
+
+//    article.classList.add('article');
+//    articleDate.classList.add('date');
+//    expandButton.classList.add('expandButton');
+
+
+//    expandButton.addEventListener('click', (e) => {
+//      article.classList.toggle('article-open');
+//    })
+
+//    return article;
+//  }
+
+
+
+
+//  	data.forEach(datam => {
+//    articles.appendChild(makeArticles(datam));
+//  })  
